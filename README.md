@@ -1,16 +1,21 @@
 # Ejercicio To-Do
-
-- Ejercicio práctico de hacer una interfaz donde poder añadir Tareas con una descripcion y poder hacer opciones con ella.
-
+Este ejercicio práctico consiste en hacer un fork del trabajo anterior de un compañero y añadir unas funciones extras 
+relacionadas con la prioridad y guardar la lista de tareas en un archivo de texto. He intentado usar al máximo su forma 
+de programar original sin reescribir más que unos pocos detalles.
+---
 # Como funciona
-- El programa permite crear Tareas, marcarlas como hechas, eliminarlas y ver las Tareas.
-- El programa lee una de las 5 opciones del usuario.
-
+El programa cuenta con varias funciones de comandos dependiendo de que tecla numérica se pulse:
+- **1** --> Añadir una tarea
+- **2** --> Ver las tareas
+- **3** --> Marcar una tarea como completada
+- **4** --> Filtrar una tarea por su prioridad (1 es alta, 2 es media y 3 es baja)
+- **5** --> Eliminar una tarea
+- **6** --> Guardar las tareas de la lista en un archivo de texto
+- **7** --> Salir
+---
 # Como se ejecuta/usa
 - Para ejecutarlo simplemente con un compilador funciona.
-- Solo hace falta poner de las teclas del 1-5 y en el apartado de añadir, añadirle una descripcion.
-
-# Implementacion
-- Usa la **ultima version** de java Jdk27.
-- La Tarea utiliza `Arraylist`
-- Gestion del UI con `println` y `Scanner`
+- Solo hace falta poner de las teclas del 1-7. En el apartado de añadir, escribir una descripción y una prioridad del 1 al 3.
+---
+# Implementación
+- Es necesario usar la **última version** de java JDK27, o mayor si la hubiera.
