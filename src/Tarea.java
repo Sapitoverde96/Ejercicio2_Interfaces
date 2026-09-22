@@ -15,8 +15,4 @@ public class Tarea {
         this.prioridad = prioridad;
         this.estado = false;
     }
-
-    public String toString() {
-        return "ID: " + id + ", Descripción: " + descripcion + ", Prioridad: " + prioridad + ", Estado: " + estado;
-    }
 }
