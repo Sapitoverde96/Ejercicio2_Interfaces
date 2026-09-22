@@ -97,7 +97,7 @@ void main() {
             if (Tareas.isEmpty()) {
                 return;
             }
-            try (FileWriter escritorArchivos = new FileWriter("tareas.txt", true)) {
+            try (FileWriter escritorArchivos = new FileWriter("tareas.txt", false)) {
                 for (Tarea tarea : Tareas) {
                     escritorArchivos.write("ID Tarea: " + tarea.id + "\n");
                     escritorArchivos.write("Descripción: " + tarea.descripcion + "\n");
