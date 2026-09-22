@@ -8,54 +8,58 @@ void main() {
     ArrayList<tarea> tareas = new ArrayList<>();
 
     do {
-        System.out.println("1. Añadir Tarea | 2. Ver Tarea | 3. Marcar tareas como completadas | 4. Eliminar tarea | 5. Salir.");
-        System.out.print("Elige la opción:");
+        System.out.println("""
+                1. Añadir una tarea
+                2. Ver tareas
+                3. Marcar tareas como completadas
+                4. Eliminar una tarea
+                5. Salir
+                """);
+        System.out.print("Que operación desea realizar: ");
         opcion = sc.nextInt();
 
         if (opcion == 1) {
             sc.nextLine();
-            System.out.println("Dime la descripción de la tarea que desees");
+            System.out.print("Asigna una descripción a la tarea: ");
             String descripcion = sc.nextLine();
             tarea t = new tarea(descripcion);
             tareas.add(t);
-            System.out.println("Tarea añadida correctamente");
+            System.out.println("[INFO] Tarea añadida correctamente.\n");
 
         } else if (opcion == 2) {
             if (tareas.isEmpty()) {
-                System.out.println("No hay tareas");
+                System.out.println("[ERROR] No hay tareas.\n");
             } else
                 for (tarea t : tareas) {
-                    System.out.println("Id: " + t.id);
+                    System.out.println("Nº Tarea: " + t.id);
                     System.out.println("Descripción: " + t.descripcion);
                     if (t.estado) {
-                        System.out.println("Estado : completado");
+                        System.out.println("Estado: Hecho\n");
                     } else {
-                        System.out.println("Estado : no completado");
+                        System.out.println("Estado: Sin hacer\n");
                     }
                 }
         } else if (opcion == 3) {
-            System.out.println("Dime que tarea seleccionar: ");
+            System.out.print("Selecciona una tarea por ID: ");
             int idBuscar = sc.nextInt();
-
             for (tarea t : tareas) {
-
                 if (t.id == idBuscar) {
                     t.estado = true;
-                    System.out.println("tarea completada");
+                    System.out.println("[INFO] Tarea marcada como completada.\n");
                 }
             }
         } else if (opcion == 4) {
-            System.out.println("Dime que id quieres eliminar: ");
+            System.out.print("Selecciona una tarea por ID: ");
             int idBuscar = sc.nextInt();
-
             for (int i = 0; i < tareas.size(); i++) {
-
                 if (tareas.get(i).id == idBuscar) {
                     tareas.remove(i);
-                    System.out.println("Tarea eliminada");
+                    System.out.println("[INFO] Tarea eliminada.\n");
                     break;
                 }
             }
+        } else {
+            System.out.println("[ERROR] Opción inválida.\n");
         }
     } while (opcion != 5);
 }
