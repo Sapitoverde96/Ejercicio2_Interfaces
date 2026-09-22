@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class tarea {
     public String descripcion;
     public boolean estado;
