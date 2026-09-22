@@ -12,8 +12,9 @@ void main() {
                 1. Añadir una tarea
                 2. Ver Tareas
                 3. Marcar Tareas como completadas
-                4. Eliminar una tarea
-                5. Salir
+                4. Filtrar tareas por prioridad
+                5. Eliminar una tarea
+                6. Salir
                 """);
         System.out.print("Que operación desea realizar: ");
         opcion = sc.nextInt();
@@ -62,6 +63,20 @@ void main() {
                 }
             }
         } else if (opcion == 4) {
+            System.out.print("Selecciona una prioridad para mostrar: ");
+            int prioridad = sc.nextInt();
+            for (Tarea tarea : Tareas) {
+                if (tarea.prioridad == prioridad) {
+                    System.out.println("Nº Tarea: " + tarea.id);
+                    System.out.println("Descripción: " + tarea.descripcion);
+                    if (tarea.estado) {
+                        System.out.println("Estado: Hecho\n");
+                    } else {
+                        System.out.println("Estado: Sin hacer\n");
+                    }
+                }
+            }
+        } else if (opcion == 5) {
             System.out.print("Selecciona una tarea por ID: ");
             int idBuscar = sc.nextInt();
             for (int indice = 0; indice < Tareas.size(); indice++) {
@@ -74,5 +89,5 @@ void main() {
         } else {
             System.out.println("[ERROR] Opción inválida.\n");
         }
-    } while (opcion != 5);
+    } while (opcion != 6);
 }
