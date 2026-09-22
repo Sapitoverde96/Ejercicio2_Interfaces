@@ -1,12 +1,18 @@
-public class tarea {
+public class Tarea {
     public String descripcion;
     public boolean estado;
     public int id;
+    public int prioridad;
     private static int contador = 1;
 
-    public tarea(String descripcion) {
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public Tarea(String descripcion, int prioridad) {
         this.id = contador++;
         this.descripcion = descripcion;
+        this.prioridad = prioridad;
         this.estado = false;
     }
 }

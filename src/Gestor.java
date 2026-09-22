@@ -5,13 +5,13 @@ void main() {
     Scanner sc = new Scanner(System.in);
     int opcion;
 
-    ArrayList<tarea> tareas = new ArrayList<>();
+    ArrayList<Tarea> Tareas = new ArrayList<>();
 
     do {
         System.out.println("""
                 1. Añadir una tarea
-                2. Ver tareas
-                3. Marcar tareas como completadas
+                2. Ver Tareas
+                3. Marcar Tareas como completadas
                 4. Eliminar una tarea
                 5. Salir
                 """);
@@ -22,18 +22,31 @@ void main() {
             sc.nextLine();
             System.out.print("Asigna una descripción a la tarea: ");
             String descripcion = sc.nextLine();
-            tarea t = new tarea(descripcion);
-            tareas.add(t);
+            System.out.print("Asigna una prioridad a la tarea: ");
+            int prioridad = sc.nextInt();
+            Tarea tarea = new Tarea(descripcion, prioridad);
+            Tareas.add(tarea);
             System.out.println("[INFO] Tarea añadida correctamente.\n");
 
         } else if (opcion == 2) {
-            if (tareas.isEmpty()) {
-                System.out.println("[ERROR] No hay tareas.\n");
+            if (Tareas.isEmpty()) {
+                System.out.println("[ERROR] No hay Tareas.\n");
             } else
-                for (tarea t : tareas) {
-                    System.out.println("Nº Tarea: " + t.id);
-                    System.out.println("Descripción: " + t.descripcion);
-                    if (t.estado) {
+                for (Tarea tarea : Tareas) {
+                    System.out.println("Nº Tarea: " + tarea.id);
+                    System.out.println("Descripción: " + tarea.descripcion);
+                    switch (tarea.getPrioridad()) {
+                        case 1:
+                            System.out.println("Prioridad: Alta");
+                            break;
+                        case 2:
+                            System.out.println("Prioridad: Media");
+                            break;
+                        case 3:
+                            System.out.println("Prioridad: Baja");
+                            break;
+                    }
+                    if (tarea.estado) {
                         System.out.println("Estado: Hecho\n");
                     } else {
                         System.out.println("Estado: Sin hacer\n");
@@ -42,18 +55,18 @@ void main() {
         } else if (opcion == 3) {
             System.out.print("Selecciona una tarea por ID: ");
             int idBuscar = sc.nextInt();
-            for (tarea t : tareas) {
-                if (t.id == idBuscar) {
-                    t.estado = true;
+            for (Tarea tarea : Tareas) {
+                if (tarea.id == idBuscar) {
+                    tarea.estado = true;
                     System.out.println("[INFO] Tarea marcada como completada.\n");
                 }
             }
         } else if (opcion == 4) {
             System.out.print("Selecciona una tarea por ID: ");
             int idBuscar = sc.nextInt();
-            for (int i = 0; i < tareas.size(); i++) {
-                if (tareas.get(i).id == idBuscar) {
-                    tareas.remove(i);
+            for (int indice = 0; indice < Tareas.size(); indice++) {
+                if (Tareas.get(indice).id == idBuscar) {
+                    Tareas.remove(indice);
                     System.out.println("[INFO] Tarea eliminada.\n");
                     break;
                 }
